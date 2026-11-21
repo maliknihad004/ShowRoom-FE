@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #243244;
+    background: #f5f7fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 24px;
+}
+
+h1 {
+    margin: 0 0 28px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0 0 18px;
+}
+
+section {
+    margin-bottom: 24px;
+}
+
+.panel, .stat, .vehicle-card {
+    background: white;
+    border: 1px solid #dce2e9;
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.stat p {
+    margin: 0 0 12px;
+    color: #617086;
+}
+
+.stat strong {
+    font-size: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font: inherit;
+    border: 1px solid #c9d3df;
+    border-radius: 5px;
+    background: white;
+    color: #243244;
+}
+
+button {
+    padding: 10px 14px;
+    background: #2155a5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #173f80;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.secondary {
+    background: #69788b;
+}
+
+button.delete {
+    background: #b43a3a;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+    gap: 20px;
+}
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.vehicle-card h3 {
+    margin: 0 0 12px;
+}
+
+.vehicle-card p {
+    margin: 7px 0;
+}
+
+.notice {
+    border-radius: 5px;
+    padding: 13px;
+    background: #e7eff9;
+}
+
+.notice.success {
+    background: #e3f3e8;
+    color: #205a33;
+}
+
+.notice.error {
+    background: #fbe8e8;
+    color: #8a2424;
+}
+
+#vehicle-details p {
+    margin: 10px 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 900px) {
+    .form-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 16px;
+    }
+
+    .stats, .form-grid, .vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showroom Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Showroom Management Dashboard</h1>
+
+        <section>
+            <h2>Dashboard Overview</h2>
+            <div class="stats">
+                <div class="stat"><p>Total Vehicles</p><strong id="total-vehicles">0</strong></div>
+                <div class="stat"><p>Available</p><strong id="available-vehicles">0</strong></div>
+                <div class="stat"><p>Reserved</p><strong id="reserved-vehicles">0</strong></div>
+                <div class="stat"><p>Sold</p><strong id="sold-vehicles">0</strong></div>
+                <div class="stat"><p>Total Inventory Value</p><strong id="total-value">0 NIS</strong></div>
+                <div class="stat"><p>Average Price</p><strong id="average-price">0 NIS</strong></div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Vehicle Management</h2>
+            <form id="vehicle-form">
+                <input type="hidden" id="vehicle-id">
+                <div class="form-grid">
+                    <label>Brand
+                        <select id="vehicle-brand" required>
+                            <option value="">Choose brand</option>
+                            <option value="Chery">Chery</option>
+                            <option value="OMODA">OMODA</option>
+                            <option value="JAECOO">JAECOO</option>
+                        </select>
+                    </label>
+                    <label>Model
+                        <input type="text" id="vehicle-model" required>
+                    </label>
+                    <label>Year
+                        <input type="number" id="vehicle-year" min="1900" max="2100" step="1" required>
+                    </label>
+                    <label>Price (NIS)
+                        <input type="number" id="vehicle-price" min="1" step="1" required>
+                    </label>
+                    <label>Mileage (km)
+                        <input type="number" id="vehicle-mileage" min="0" step="1" required>
+                    </label>
+                    <label>Color
+                        <input type="text" id="vehicle-color" required>
+                    </label>
+                    <label>Status
+                        <select id="vehicle-status" required>
+                            <option value="">Choose status</option>
+                            <option value="Available">Available</option>
+                            <option value="Reserved">Reserved</option>
+                            <option value="Sold">Sold</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="actions">
+                    <button type="submit" id="save-button">Add Vehicle</button>
+                    <button type="button" id="cancel-button" class="secondary" hidden>Cancel Edit</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Search &amp; Filtering</h2>
+            <div class="form-grid">
+                <label>Search Brand or Model
+                    <input type="search" id="search" placeholder="Search vehicles">
+                </label>
+                <label>Brand
+                    <select id="filter-brand">
+                        <option value="">All Brands</option>
+                        <option value="Chery">Chery</option>
+                        <option value="OMODA">OMODA</option>
+                        <option value="JAECOO">JAECOO</option>
+                    </select>
+                </label>
+                <label>Availability
+                    <select id="filter-status">
+                        <option value="">All Statuses</option>
+                        <option value="Available">Available</option>
+                        <option value="Reserved">Reserved</option>
+                        <option value="Sold">Sold</option>
+                    </select>
+                </label>
+                <label>Minimum Price
+                    <input type="number" id="min-price" min="0" placeholder="NIS">
+                </label>
+                <label>Maximum Price
+                    <input type="number" id="max-price" min="0" placeholder="NIS">
+                </label>
+                <label>Sort Vehicles
+                    <select id="sort">
+                        <option value="">No Sorting</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="year-asc">Year: Oldest First</option>
+                        <option value="year-desc">Year: Newest First</option>
+                    </select>
+                </label>
+            </div>
+            <button type="button" id="reset-button" class="secondary">Reset Filters</button>
+        </section>
+
+        <p id="loading" class="notice" role="status" hidden>Loading...</p>
+        <p id="message" class="notice" role="status" hidden></p>
+
+        <div class="content-grid">
+            <section>
+                <h2>Showroom Vehicles</h2>
+                <div id="vehicle-list" class="vehicle-grid"></div>
+                <p id="empty-message" class="panel" hidden>No vehicles found.</p>
+            </section>
+            <section>
+                <h2>Vehicle Details</h2>
+                <div id="vehicle-details" class="panel">Select a vehicle to view its details.</div>
+            </section>
+        </div>
+    </main>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
